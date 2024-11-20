@@ -27,13 +27,14 @@ pipeline {
                     image 'node:18-alpine'
                     reuseNode true
                 }
-            }    
+            }
+
             steps {
                 sh '''
-                    echo "Test stage"
-                    grep -r "index.html" ./build
+                    test -f build/index.html
                     npm test
                 '''
+
             }
 
         }    
