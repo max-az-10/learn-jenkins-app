@@ -26,7 +26,7 @@ pipeline {
                 sh '''
                     echo "Test stage"
                     grep -r "index.html" ./build
-                    npm test
+                    npm test all
                 '''
             }
 
