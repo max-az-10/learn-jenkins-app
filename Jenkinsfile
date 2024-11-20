@@ -22,10 +22,15 @@ pipeline {
         }
 
         stage('Test') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
             steps {
                 sh '''
                     echo "Test stage"
-                    grep -r "index.html" ./build
+                    grep "index.html" ./build
                     npm test
                 '''
             }
