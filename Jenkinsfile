@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Test stage"
-                    grep "index.html" ./build
+                    grep -r "index.html" ./build
                     npm test
                 '''
             }
