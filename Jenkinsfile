@@ -100,12 +100,12 @@ pipeline {
                     image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
                     reuseNode true
                 }
+            }
 
             environment {
                 CI_ENVIRONMENT_URL = 'https://stupendous-crepe-8bc4f4.netlify.app'
             }
 
-            }
             steps {
                 sh '''
                     npx playwright test --reporter=html
@@ -113,10 +113,10 @@ pipeline {
             }
         }
 
-        post {
-            always {
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright E2E', reportTitles: '', useWrapperFileDirectly: true])
-            }
+    post {
+        always {
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright E2E', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
+
 }
