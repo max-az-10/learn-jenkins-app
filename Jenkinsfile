@@ -17,6 +17,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "Small Changes"
                     ls -la
                     node --version
                     npm --version
@@ -83,7 +84,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "Small Changes"
                     npm cache clean --force
                     npm install netlify-cli
                     node_modules/.bin/netlify --version
