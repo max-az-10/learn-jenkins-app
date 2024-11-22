@@ -84,6 +84,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    npm cache clean --force
                     npm install netlify-cli
                     node_modules/.bin/netlify --version
                     echo "Deploying to ptoduction. Site ID: $NETLIFY_SITE_ID"
@@ -113,7 +114,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright E2E', reportTitles: '', useWrapperFileDirectly: true])
