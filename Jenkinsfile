@@ -84,7 +84,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm cache clean --force
                     npm install netlify-cli
                     node_modules/.bin/netlify --version
                     echo "Deploying to staging. Site ID: $NETLIFY_SITE_ID"
