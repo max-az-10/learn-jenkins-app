@@ -18,6 +18,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    npm cache clean --force
                     echo "Small Changes"
                     ls -la
                     node --version
@@ -25,7 +26,6 @@ pipeline {
                     npm ci
                     npm run build
                     ls -la
-                    npm cache clean --force
                 '''
             }
         }
