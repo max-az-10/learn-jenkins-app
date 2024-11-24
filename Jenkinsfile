@@ -24,7 +24,7 @@ pipeline {
                     npm --version
                     npm ci
                     npm run build
-                    npm cache clean
+                    npm cache clean --force
                     ls -la
                 '''
             }
