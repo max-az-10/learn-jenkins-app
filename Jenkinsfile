@@ -62,7 +62,7 @@ pipeline {
                         sh '''
                             npm install serve
                             node_modules/.bin/serve -s build &
-                            sleep 10
+                            sleep 5
                             npx playwright test --reporter=html
                         '''
                     }
@@ -85,6 +85,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    npm cache clean --force
                     npm install netlify-cli node-jq
                     node_modules/.bin/netlify --version
                     echo "Deploying to staging. Site ID: $NETLIFY_SITE_ID"
