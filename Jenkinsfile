@@ -23,10 +23,8 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    npm install svgo@latest
                     npm ci
                     npm run build
-                    npm cache clean --force
                     ls -la
                 '''
             }
