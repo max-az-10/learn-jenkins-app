@@ -16,6 +16,7 @@ pipeline {
                     reuseNode true
                 }
             }
+            
             steps {
                 sh '''
                     ls -la
