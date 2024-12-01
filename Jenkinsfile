@@ -33,6 +33,7 @@ pipeline {
 
         stage('Build Docker image') {
             steps {
+                sh echo 'Build the Docker image'
                 sh 'docker build -t myjenkinsapp .'
             }
         }
