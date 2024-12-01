@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Build the Docker image"
-                    docker build -t myjenkinsapp .
+                    docker build -t myjenkinsapp:$REACT_APP_VERSION .
                 '''
             }
         }
